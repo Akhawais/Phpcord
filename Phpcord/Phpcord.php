@@ -379,7 +379,7 @@ class Phpcord
     protected function handleHeartbeatACK($data, $event)
     {
         $this->log->debug('Heartbeat ACK event received');
-        $this->heartbeatAcknowledgeTimeout->cancel();
+        $this->heartbeatAcknowledgeTimeout ? $this->heartbeatAcknowledgeTimeout->cancel() : null;
         $this->emit('heartbeat_acknowledge', [$this]);
     }
 
