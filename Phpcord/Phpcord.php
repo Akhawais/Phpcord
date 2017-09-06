@@ -9,7 +9,6 @@ namespace Phpcord;
 use Evenement\EventEmitterTrait;
 use GuzzleHttp\HandlerStack;
 use Illuminate\Cache\CacheManager;
-use Illuminate\Container\Container;
 use Illuminate\Redis\RedisManager;
 use Illuminate\Support\Fluent;
 use Monolog\Handler\StreamHandler;
@@ -134,7 +133,6 @@ class Phpcord
             $this->log->pushHandler(new StreamHandler('php://stdout', $this->options->get('loggingLevel', Logger::INFO)));
         }
         $app->instance(Logger::class, $this->log);
-
         Container::setInstance($app);
     }
 

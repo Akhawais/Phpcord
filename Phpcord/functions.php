@@ -11,14 +11,14 @@ if (!function_exists('phpcord')) {
      * @param  string $make
      * @param  array  $parameters
      *
-     * @return mixed|\Illuminate\Container\Container
+     * @return mixed|\Phpcord\Container
      */
     function phpcord($make = null, $parameters = [])
     {
         if (is_null($make)) {
-            return Illuminate\Container\Container::getInstance();
+            return Phpcord\Container::getInstance();
         }
-        return Illuminate\Container\Container::getInstance()->make($make, $parameters);
+        return Phpcord\Container::getInstance()->make($make, $parameters);
     }
 }
 if (!function_exists('client')) {
