@@ -11,7 +11,7 @@ if (!function_exists('phpcord')) {
      * @param  string $make
      * @param  array  $parameters
      *
-     * @return mixed|\Phpcord\Container
+     * @return mixed|\Illuminate\Contracts\Container\Container
      */
     function phpcord($make = null, $parameters = [])
     {
