@@ -345,7 +345,7 @@ class Phpcord
         }
 
         $handlers = [
-            Event::VOICE_SERVER_UPDATE => 'handleVoiceServerUpdate',
+            //Event::VOICE_SERVER_UPDATE => 'handleVoiceServerUpdate',
             Event::RESUMED             => 'handleResume',
             Event::READY               => 'handleReady',
             Event::GUILD_MEMBERS_CHUNK => 'handleGuildMembersChunk',
@@ -387,6 +387,12 @@ class Phpcord
     {
         $this->log->debug('Reconnect event received');
         phpcord(WebSocket::class)->close(1000, 'Reconnect instruction received');
+    }
+
+    protected function handleResume($data, $event)
+    {
+        $this->log->info('Reconnected to Discord Gateway');
+        $this->emit('reconnected', [$this]);
     }
 
     protected function handleInvalidSession($data, $event)
