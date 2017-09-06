@@ -180,7 +180,7 @@ class Phpcord
     public function wsOpen($connection)
     {
         $this->connected = true;
-        Container::getInstance()->instance(WebSocket::class, $connection);
+        ContainerHolder::getInstance()->instance(WebSocket::class, $connection);
 
         $this->log->info('Connected to Discord gateway');
 
