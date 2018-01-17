@@ -220,6 +220,7 @@ class Phpcord
         ++$this->reconnectCount;
         $this->reconnecting = true;
         $this->log->info('Reconnecting to Discord Gateway', ['reconnect_count' => $this->reconnectCount]);
+        $this->emit('reconnecting', [$this->reconnectCount]);
         $this->connect();
     }
 
